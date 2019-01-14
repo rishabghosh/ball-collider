@@ -14,13 +14,6 @@ class Ball {
     this.velocity.top = top;
 	}
 
-	moveUp(){
-		console.log(this.position.top);
-		console.log(this.velocity.top);
-		//this.position.top -= this.velocity.top
-	}
-	
-	
 }
 
 
