@@ -40,8 +40,7 @@ const randomBallVelocity = function (absoluteValue) {
 	return { left, top };
 };
 
-const generateBalls = function (count, properties) {
-	const radius = 5;
+const generateBalls = function (count, radius) {
 	const result = [];
 	for (let ballGenerated = 0; ballGenerated < count; ballGenerated++) {
 		const ballPosition = randomBallPositions();
@@ -59,7 +58,7 @@ const initialize = function () {
 	const radius = 10;
 	const ballPosition = randomBallPositions();
 	const velocity = randomBallVelocity(5);
-	const balls = generateBalls(30, { radius, ballPosition, velocity })
+	const balls = generateBalls(10, radius)
 
 	playground.focus();
 	setInterval(function () { moveBall(balls); }, 20);
