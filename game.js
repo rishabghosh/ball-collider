@@ -1,8 +1,9 @@
 class Ball {
-  constructor(radius, ballPosition, velocity) {
+  constructor(radius, ballPosition, velocity, color) {
     this.radius = radius;
     this.position = ballPosition;
-    this.velocity = velocity;
+		this.velocity = velocity;
+		this.color = color;
   }
   move() {
     this.position.left += this.velocity.left;

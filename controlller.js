@@ -14,6 +14,7 @@ const drawBall = function (ball, id) {
 	ballDiv.style.left = applyPixel(ball.position.left);
 	ballDiv.style.height = applyPixel(ball.radius * 2);
 	ballDiv.style.width = applyPixel(ball.radius * 2);
+	ballDiv.style.backgroundColor = ball.color;
 };
 
 const moveBall = function (balls) {
@@ -40,12 +41,22 @@ const randomBallVelocity = function (absoluteValue) {
 	return { left, top };
 };
 
+const getRandomColor = function(){
+	const letters = "0123456789ABCDEF";
+	let color = "#";
+	for (let i = 0; i < 6; i++) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
+
 const generateBalls = function (count, radius) {
 	const result = [];
 	for (let ballGenerated = 0; ballGenerated < count; ballGenerated++) {
 		const ballPosition = randomBallPositions();
 		const velocity = randomBallVelocity(5);
-		result.push(new Ball(radius, ballPosition, velocity))
+		const color = getRandomColor();
+		result.push(new Ball(radius, ballPosition, velocity, color))
 		const ballDiv = createBallDiv(ballGenerated);
 		playground.appendChild(ballDiv);
 	}
@@ -58,7 +69,7 @@ const initialize = function () {
 	const radius = 10;
 	const ballPosition = randomBallPositions();
 	const velocity = randomBallVelocity(5);
-	const balls = generateBalls(10, radius)
+	const balls = generateBalls(30, radius)
 
 	playground.focus();
 	setInterval(function () { moveBall(balls); }, 20);
