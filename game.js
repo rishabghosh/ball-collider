@@ -12,7 +12,8 @@ class Ball {
   setVelocity(left, top) {
     this.velocity.left = left;
     this.velocity.top = top;
-  }
+	}
+	
 }
 
 
