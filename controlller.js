@@ -22,19 +22,27 @@ const moveBall = function (ball, game) {
 	drawBall(ball);
 };
 
-const possibleBallPositions = function () {
-	let left = Math.floor(Math.random() * 950) + 10;
-	let top = Math.floor(Math.random() * 590) + 10;
-	return { left, top};
+const randomBallPositions = function () {
+	const left = Math.floor(Math.random() * 950) + 10;
+	const top = Math.floor(Math.random() * 590) + 10;
+	return { left, top };
 };
+
+const randomBallVelocity = function (absoluteValue) {
+	const coreValue = [absoluteValue, -absoluteValue];
+	const left = coreValue[Math.floor(Math.random() * coreValue.length)];
+	const top = coreValue[Math.floor(Math.random() * coreValue.length)];
+	return { left, top };
+};
+
 
 const initialize = function () {
 	const ballDiv = createBallDiv();
 	playground.appendChild(ballDiv);
 
 	const radius = 10;
-	const ballPosition = possibleBallPositions();
-	const velocity = { left: 5, top: 5 };
+	const ballPosition = randomBallPositions();
+	const velocity = randomBallVelocity(5);
 	const ball = new Ball(radius, ballPosition, velocity);
 	const game = new Game(ball);
 	drawBall(ball);
