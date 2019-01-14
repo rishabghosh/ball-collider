@@ -23,8 +23,8 @@ const moveBall = function (ball, game) {
 };
 
 const randomBallPositions = function () {
-	const left = Math.floor(Math.random() * 950) + 10;
-	const top = Math.floor(Math.random() * 590) + 10;
+	const left = Math.floor(Math.random() * 95) * 10 + 10;
+	const top = Math.floor(Math.random() * 59) * 10 + 10;
 	return { left, top };
 };
 
@@ -35,11 +35,21 @@ const randomBallVelocity = function (absoluteValue) {
 	return { left, top };
 };
 
+const generateBalls = function (count, properties) {
+	const radius = 5;
+	const result = [];
+	for (let ballGenerated = 0; ballGenerated < count; ballGenerated++) {
+		const ballPosition = randomBallPositions();
+		const velocity = randomBallVelocity(5);
+		result.push(new Ball(radius, ballPosition, velocity))
+	}
+	return result;
+};
+
 
 const initialize = function () {
 	const ballDiv = createBallDiv();
 	playground.appendChild(ballDiv);
-
 	const radius = 10;
 	const ballPosition = randomBallPositions();
 	const velocity = randomBallVelocity(5);
