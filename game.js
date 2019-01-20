@@ -21,7 +21,7 @@ class Ball {
 const isColliedWithSideWalls = function (ball) {
   const diameterOfBall = ball.radius * 2;
   return ball.position.left <= (0 + diameterOfBall) ||
-    ball.position.left >= (960 - diameterOfBall);
+    ball.position.left >= (940 - diameterOfBall);
 };
 
 const isColliedWithTopWalls = function (ball) {

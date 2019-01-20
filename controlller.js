@@ -68,8 +68,8 @@ const initialize = function () {
 
 	const radius = 10;
 	const ballPosition = randomBallPositions();
-	const velocity = randomBallVelocity(5);
-	const balls = generateBalls(30, radius)
+	const velocity = randomBallVelocity(1);
+	const balls = generateBalls(5, radius)
 
 	playground.focus();
 	setInterval(function () { moveBall(balls); }, 20);
